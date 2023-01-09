@@ -3,34 +3,30 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: charleshajjar <charleshajjar@student.42    +#+  +:+       +#+         #
+#    By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/12/19 21:22:38 by charleshajj       #+#    #+#              #
-#    Updated: 2022/12/20 15:40:37 by charleshajj      ###   ########.fr        #
+#    Created: 2023/01/08 18:16:25 by chajjar           #+#    #+#              #
+#    Updated: 2023/01/08 19:36:54 by chajjar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-Name: Phonebook
+NAME = PhoneBook
 
-SRCS: Phonebook.cpp Contact.cpp main.cpp
-OBJS: ${SRCS:.cpp:.o}
+SRCS = phonebook.cpp main.cpp contact.cpp
+OBJS = $(SRCS:.cpp=.o)
 
-CC: c++
-FLAGS: -Wall -Werror -Wextra -std=c++98
+CC = c++
+FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-.cpp.o: 
-		$(CC) $(FLAGS) -c $< -o $(NAME)
-
-$(NAME): $(OBJS)
-		$(CC) $(OBJS) $(FLAGS) -o $(NAME)
-
-clean:  @$(RM) @$(OBJS)
+$(NAME): $(OBJS) 
+		$(CC) $(FLAGS) -o $(NAME) $(OBJS)
+clean : 
+		rm -f $(OBJS)
 
 fclean: clean
-		@$(RM) @$(NAME)
+		rm -f $(NAME)
+re: fclean all
 
-re : fclean all
 .PHONY: all clean fclean re
-
