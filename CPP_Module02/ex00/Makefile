@@ -6,7 +6,7 @@
 #    By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 11:58:35 by chajjar           #+#    #+#              #
-#    Updated: 2023/01/11 17:22:11 by chajjar          ###   ########.fr        #
+#    Updated: 2023/01/11 21:28:45 by chajjar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,10 @@ $(NAME): $(OBJ)
 		$(CC) $(FLAGS) -o $(NAME) $(OBJ)
 
 clean:
-		rm -f $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean 
-		rm -f $(NAME)
+	rm -f $(NAME)
 		
 re: fclean all
 

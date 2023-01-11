@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:00:06 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/11 21:27:19 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/11 21:27:28 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,14 @@ private:
 public:
 	Fixed();
 	Fixed(const Fixed &);
+	Fixed(int num);
+	Fixed(const float num);
 	Fixed& operator=(const Fixed &);
 	~Fixed();
 	int getRawBits(void) const;
 	void setRawBits(int const n);
+	float toFloat(void) const;
+	int toInt(void) const;
+
 };
+std::ostream& operator<<(std::ostream &out, Fixed const _entier);
