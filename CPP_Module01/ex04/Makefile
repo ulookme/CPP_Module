@@ -5,29 +5,27 @@
 #                                                     +:+ +:+         +:+      #
 #    By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/09 19:01:22 by chajjar           #+#    #+#              #
-#    Updated: 2023/01/10 16:16:37 by chajjar          ###   ########.fr        #
+#    Created: 2023/01/10 16:17:17 by chajjar           #+#    #+#              #
+#    Updated: 2023/01/10 17:29:20 by chajjar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Violence
+NAME = Replace
 
-SRCS = Weapon.cpp main.cpp HumanB.cpp HumanA.cpp
-OBJS = $(SRCS:.cpp=.o)
-
+SRC = main.cpp Replace.cpp
+OBJ = $(SRC:.cpp=.o)
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Werror -Wextra -std=c++98
 
-all: $(NAME)
+all : $(NAME)
 
-$(NAME): $(OBJS)
-		$(CC) $(FLAGS) -o $(NAME) $(OBJS)
+$(NAME): $(OBJ)
+		$(CC) $(FLAGS) -o $(NAME) $(OBJ)
 
-clean:
-		rm -f $(OBJS)
-
-fclean: clean
+clean : 
+		rm -f $(OBJ)
+fclean : clean 
 		rm -f $(NAME)
-re: fclean all 
+re : fclean all
 
 .PHONY: all clean fclean re
