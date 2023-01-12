@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:00:06 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/12 13:56:14 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/12 16:20:28 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ public:
 	bool Fixed::operator>=(const Fixed &n);
 	bool Fixed::operator!=(const Fixed &n);
 	//min & max
-	static Fixed& min(const Fixed &a, const Fixed &b);
+	static const Fixed& min(const Fixed &a, const Fixed &b);
+	static Fixed& min(Fixed &a, Fixed &b);
+	static const Fixed& max(const Fixed &a, const Fixed &b);
+	static Fixed& max(Fixed &a, Fixed &b);
 };
 std::ostream& operator<<(std::ostream &out, Fixed const &src);

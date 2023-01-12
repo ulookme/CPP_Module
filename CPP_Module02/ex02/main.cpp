@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:00:10 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/12 11:08:31 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/12 16:20:24 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 #include <iostream>
 
 int main( void ) {
-Fixed a(2 * 3);
-Fixed b(3);
-
-std::cout << a<< std::endl;
+Fixed a;
+Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+std::cout << a << std::endl;
+std::cout << ++a << std::endl;
+std::cout << a << std::endl;
+std::cout << a++ << std::endl;
+std::cout << a << std::endl;
+std::cout << b << std::endl;
+std::cout << Fixed::max( a, b ) << std::endl;
 return 0;
 }
