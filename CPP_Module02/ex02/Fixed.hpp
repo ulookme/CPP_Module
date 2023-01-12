@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:00:06 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/12 11:37:54 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/12 13:56:14 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,24 @@ public:
 	void setRawBits(int const n);
 	float toFloat(void) const;
 	int toInt(void) const;
+	//operation 
 	Fixed& operator+=(const Fixed &n);
 	Fixed& operator-=(const Fixed &n);
 	Fixed& operator*=(const Fixed &n);
 	Fixed& operator/=(const Fixed &n);
-	Fixed& operator==(const Fixed &n) const;
-
+	//decrementation et incrementation
+	Fixed&	Fixed::operator++(int);
+	Fixed& Fixed::operator++(void);
+	Fixed&	Fixed::operator--(int);
+	Fixed& Fixed::operator--(void);
+	//operateur booleen
+	bool operator==(const Fixed &n);
+	bool Fixed::operator<(const Fixed &n);
+	bool Fixed::operator<=(const Fixed &n);
+	bool Fixed::operator>(const Fixed &n);
+	bool Fixed::operator>=(const Fixed &n);
+	bool Fixed::operator!=(const Fixed &n);
+	//min & max
+	static Fixed& min(const Fixed &a, const Fixed &b);
 };
 std::ostream& operator<<(std::ostream &out, Fixed const &src);

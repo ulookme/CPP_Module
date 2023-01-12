@@ -6,11 +6,13 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:00:03 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/12 11:39:34 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/12 14:00:12 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+//====================Constructor Destructor===================================
 
 Fixed::Fixed ()
 {
@@ -41,6 +43,8 @@ Fixed::Fixed(const Fixed &src)
 	*this = src;
 }
 
+//=========================Operator Egaliter===============================
+
 Fixed& Fixed::operator=(const Fixed &src)
 {
 	std::cout << "Copy assignment operator called "<< std::endl;
@@ -48,11 +52,55 @@ Fixed& Fixed::operator=(const Fixed &src)
 	return *this;
 }
 
-Fixed& Fixed::operator==(const Fixed &n) const{
+bool Fixed::operator==(const Fixed &n){
 
-	return (this->getRawBits() == n.getRawBits());
+	return(this->getRawBits() == n.getRawBits());
 }
 
+bool Fixed::operator<(const Fixed &n){
+	return(this->getRawBits() < n.getRawBits());
+}
+bool Fixed::operator<=(const Fixed &n){
+	return(this->getRawBits() <= n.getRawBits());
+}
+
+bool Fixed::operator>(const Fixed &n){
+	return(this->getRawBits() > n.getRawBits());
+}
+
+bool Fixed::operator>=(const Fixed &n){
+	return(this->getRawBits() >= n.getRawBits());
+}
+
+bool Fixed::operator!=(const Fixed &n){
+	return(this->getRawBits() != n.getRawBits());
+}
+
+//==========================Operator calcul================================
+
+Fixed&	Fixed::operator++(int){
+	Fixed tmp(_entier);
+	++_entier;
+	return(tmp);
+}
+
+Fixed& Fixed::operator++(void)
+{
+	_entier +=1;
+	return (*this);
+}
+
+Fixed&	Fixed::operator--(int){
+	Fixed tmp(_entier);
+	--_entier;
+	return(tmp);
+}
+
+Fixed& Fixed::operator--(void)
+{
+	_entier -=1;
+	return (*this);
+}
 
 Fixed&	Fixed::operator*=(const Fixed &n)
 {
@@ -84,7 +132,7 @@ Fixed& Fixed::operator/=(const Fixed &n){
 	return(*this);
 }
 
-
+//======================= Get Set==============================
 
 int Fixed::getRawBits(void) const {
 	std::cout << "getRawBits member function called"<< std::endl;
@@ -96,6 +144,8 @@ void Fixed::setRawBits(int const n){
 	_entier = n;
 }
 
+//=========================Florat  And Int=============================
+
 float Fixed::toFloat(void) const
 {
 	return((float)(this->_entier/ (float)(1 << _bits)));
@@ -105,6 +155,8 @@ int Fixed::toInt(void) const
 {
 	return(this->_entier >> _bits);
 }
+
+//=========================OUtput=============================
 
 std::ostream& operator<<(std::ostream &out, Fixed const &src)
 {
