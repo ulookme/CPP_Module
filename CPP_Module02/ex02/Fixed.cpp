@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:00:03 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/12 09:57:36 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/12 11:39:34 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,44 @@ Fixed& Fixed::operator=(const Fixed &src)
 	_entier = src._entier;
 	return *this;
 }
+
+Fixed& Fixed::operator==(const Fixed &n) const{
+
+	return (this->getRawBits() == n.getRawBits());
+}
+
+
+Fixed&	Fixed::operator*=(const Fixed &n)
+{
+	Fixed _entier(*this);
+	long tmp1, tmp2;
+
+	tmp1 = 	((long)this->getRawBits());
+	tmp2 = 	((long)n.getRawBits());
+	_entier.setRawBits((tmp1 * tmp2) / (1 << _bits));
+	return (*this);
+}
+
+Fixed& Fixed::operator+=(const Fixed &n)
+{
+	Fixed _entier(*this);
+	_entier.setRawBits(this->getRawBits() + n.getRawBits());
+	return (*this);
+}
+
+Fixed& Fixed::operator-=(const Fixed &n){
+	Fixed _entier(*this);
+	_entier.setRawBits(this->getRawBits() - n.getRawBits());
+	return(*this);
+}
+
+Fixed& Fixed::operator/=(const Fixed &n){
+	Fixed _entier(*this);
+	_entier.setRawBits(this->getRawBits() / n.getRawBits());
+	return(*this);
+}
+
+
 
 int Fixed::getRawBits(void) const {
 	std::cout << "getRawBits member function called"<< std::endl;
