@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:00:06 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/12 16:26:41 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/12 18:08:36 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,17 @@ public:
 	Fixed operator*(const Fixed &n);
 	Fixed operator/(const Fixed &n);
 	//decrementation et incrementation
-	Fixed&	Fixed::operator++(int);
-	Fixed& Fixed::operator++(void);
-	Fixed&	Fixed::operator--(int);
-	Fixed& Fixed::operator--(void);
+	Fixed operator++(int);
+	Fixed operator++(void);
+	Fixed operator--(int);
+	Fixed operator--(void);
 	//operateur booleen
-	bool operator==(const Fixed &n);
-	bool Fixed::operator<(const Fixed &n);
-	bool Fixed::operator<=(const Fixed &n);
-	bool Fixed::operator>(const Fixed &n);
-	bool Fixed::operator>=(const Fixed &n);
-	bool Fixed::operator!=(const Fixed &n);
+	bool operator==(const Fixed &n) const;
+	bool operator<(const Fixed &n) const;
+	bool operator<=(const Fixed &n) const;
+	bool operator>(const Fixed &n) const;
+	bool operator>=(const Fixed &n) const;
+	bool operator!=(const Fixed &n) const;
 	//min & max
 	static const Fixed& min(const Fixed &a, const Fixed &b);
 	static Fixed& min(Fixed &a, Fixed &b);
