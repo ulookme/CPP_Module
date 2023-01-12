@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:00:03 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/12 16:20:08 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/12 16:27:12 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,43 @@ Fixed& Fixed::operator/=(const Fixed &n){
 	_entier.setRawBits((tmp1 * (1 << _bits)) / tmp2);
 	return (*this);;
 }
+
+//===========================INTERMEDIER OPERATOR===================================//
+
+Fixed	Fixed::operator*(const Fixed &n)
+{
+	Fixed _entier(*this);
+	long tmp1, tmp2;
+
+	tmp1 = 	((long)this->getRawBits());
+	tmp2 = 	((long)n.getRawBits());
+	_entier.setRawBits((tmp1 * tmp2) / (1 << _bits));
+	return (_entier);
+}
+
+Fixed Fixed::operator+(const Fixed &n)
+{
+	Fixed _entier(*this);
+	_entier.setRawBits(this->getRawBits() + n.getRawBits());
+	return (_entier);
+}
+
+Fixed Fixed::operator-(const Fixed &n){
+	Fixed _entier(*this);
+	_entier.setRawBits(this->getRawBits() - n.getRawBits());
+	return(_entier);
+}
+
+Fixed Fixed::operator/(const Fixed &n){
+	Fixed _entier(*this);
+	long tmp1, tmp2;
+
+	tmp1 = 	((long)this->getRawBits());
+	tmp2 = 	((long)n.getRawBits());
+	_entier.setRawBits((tmp1 * (1 << _bits)) / tmp2);
+	return (_entier);;
+}
+
 
 //======================= Get Set====================================//
 

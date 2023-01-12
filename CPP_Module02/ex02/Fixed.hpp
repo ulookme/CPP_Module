@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 12:00:06 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/12 16:20:28 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/12 16:26:41 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ public:
 	Fixed& operator-=(const Fixed &n);
 	Fixed& operator*=(const Fixed &n);
 	Fixed& operator/=(const Fixed &n);
+	Fixed operator+(const Fixed &n);
+	Fixed operator-(const Fixed &n);
+	Fixed operator*(const Fixed &n);
+	Fixed operator/(const Fixed &n);
 	//decrementation et incrementation
 	Fixed&	Fixed::operator++(int);
 	Fixed& Fixed::operator++(void);
