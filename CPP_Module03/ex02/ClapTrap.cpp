@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 20:19:51 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/13 20:48:46 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/13 20:48:25 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(const std::string &name){
 
-	std::cout << "String constructor called "<< std::endl;
+	std::cout << "ClapTrap String constructor called "<< std::endl;
 	_name = name;
 	_hit = 10;
 	_energy = 10;
