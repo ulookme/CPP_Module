@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 20:19:51 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/13 19:09:32 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/13 19:10:56 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@ ClapTrap::ClapTrap()
 	//std::cout << "Default constructor called "<< std::endl;
 }
 
-ClapTrap::ClapTrap(const std::string &name)
-{
+ClapTrap::ClapTrap(const std::string &name){
 
 	std::cout << " String constructor called "<< std::endl;
 	_name = name;
@@ -64,7 +63,7 @@ void ClapTrap::takeDamage(unsigned int amount){
 		return ;
 	}
 	_hit -= amount;
-	std::cout << "ClapTrap " << this->_hit << " hit : points of life!" << std::endl;
+	std::cout << _name << " a " << this->_hit << " points de vie restant!" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){

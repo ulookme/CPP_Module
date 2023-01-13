@@ -6,22 +6,25 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 20:20:03 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/13 19:09:45 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/13 19:15:15 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main(){
-	ClapTrap a("testeur00");
-	ClapTrap b("testeur01");
+	ScavTrap a("testeur00");
+	//ClapTrap b("testeur01");
 	std::cout << "======================================="<< std::endl;
-	a.takeDamage(100);
+	a.takeDamage(1);
 	std::cout << "======================================="<< std::endl;
 	a.attack("testeur03");
 	std::cout << "======================================="<< std::endl;
 	a.beRepaired(5);
 	std::cout << "======================================="<< std::endl;
-
+	a.guardGate();
+	std::cout << "======================================="<< std::endl;
+	
 	return(0);
 }
