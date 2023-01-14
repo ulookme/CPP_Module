@@ -6,11 +6,11 @@
 #    By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/14 10:40:49 by chajjar           #+#    #+#              #
-#    Updated: 2023/01/14 18:05:13 by chajjar          ###   ########.fr        #
+#    Updated: 2023/01/14 18:13:36 by chajjar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = JENEVEUXPAS
+NAME = ABSTRAITE
 
 SRCS = main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 OBJS = $(SRCS:.cpp=.o)

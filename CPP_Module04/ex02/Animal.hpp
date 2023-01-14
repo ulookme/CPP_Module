@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 10:44:17 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/14 17:18:00 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/14 18:11:16 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ public:
 	Animal(const Animal &);
 	virtual ~Animal();
 	Animal& operator=(const Animal &);
-	virtual void makeSound() const;
+	virtual void makeSound() const = 0;
 	std::string getType(void) const;
 };
 
