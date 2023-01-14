@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/14 10:43:11 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/14 17:48:18 by chajjar          ###   ########.fr       */
+/*   Created: 2023/01/14 10:44:17 by chajjar           #+#    #+#             */
+/*   Updated: 2023/01/14 17:18:00 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once 
-#include "Animal.hpp"
+#pragma once
+#include <string>
+#include <iostream>
 
-class Cat : public Animal
+class Animal
 {
+protected:
+	std::string type;
+	
 public:
-	Cat(void);
-	Cat(const Cat &);
-	Cat& operator=(const Cat&);
-	void makeSound() const;
-	~Cat();
+	Animal(void);
+	Animal(std::string t);
+	Animal(const Animal &);
+	virtual ~Animal();
+	Animal& operator=(const Animal &);
+	virtual void makeSound() const;
+	std::string getType(void) const;
 };
-
 
