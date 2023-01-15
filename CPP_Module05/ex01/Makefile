@@ -6,13 +6,13 @@
 #    By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/14 20:04:55 by chajjar           #+#    #+#              #
-#    Updated: 2023/01/14 20:13:35 by chajjar          ###   ########.fr        #
+#    Updated: 2023/01/15 16:45:24 by chajjar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = BUREAUCRAT
+NAME = ENRANG
 
-SRCS = main.cpp Bureaucrat.cpp
+SRCS = main.cpp Bureaucrat.cpp Form.cpp
 OBJS = $(SRCS:.cpp=.o)
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
