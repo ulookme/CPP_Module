@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:19:35 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/16 14:11:37 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/16 16:25:41 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 class ShrubberyCreationForm : public Form
 {
 private:
-	std::string _objet;
+	std::string _target;
 	ShrubberyCreationForm();
 public:
-	ShrubberyCreationForm(const std::string object);
+	ShrubberyCreationForm(const std::string target);
 	ShrubberyCreationForm(const ShrubberyCreationForm &t);
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm &t);
 	~ShrubberyCreationForm();

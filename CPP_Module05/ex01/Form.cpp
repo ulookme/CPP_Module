@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 16:45:45 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/15 19:46:39 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/16 17:39:10 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ _name(name), _gradeS(gradeS),_gradeE(gradeE)
 		 throw GradeTooHighExeption();
 	else if(_gradeE > 150 || _gradeS > 150)
 		throw GradeTooLowExeption();
-		
 }
 
 const std::string Form::getFormName() const {
@@ -61,11 +60,10 @@ const int Form::getFormGradeE() const {
 }
 
 void Form::beSigned(const Bureaucrat &t){
-	if(t.getGrade() <= _gradeS && t.getGrade() <= _gradeE)
-		throw GradeTooHighExeption();
-	else if(this->_i)
+	if(t.getGrade() > _gradeS)
 		throw GradeTooLowExeption();
-	this->_i = true;
+	else
+		this->_i = true;
 }
 
 bool Form::issigned(void) const{

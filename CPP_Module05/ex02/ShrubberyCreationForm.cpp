@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:19:31 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/16 14:35:43 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/16 16:22:26 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 {
 	
 }
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string object):
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target):
 	Form("ShrubberyCreationForm", 145, 137)
 {
-	_objet = object;
+	_target = target;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &t):Form(t)
 {
-	_objet = t._objet;
+	_target = t._target;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm &t)
 {
 	Form::operator=(t);
-	_objet = t._objet;
+	_target = t._target;
 	return(*this);
 }
 
@@ -46,7 +46,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor)
 	if (executor.getGrade() > getFormGradeE())
 		throw GradeTooLowExeption();
 
-	f.open(_objet + "_shrubbery", std::ios::out | std::ios::app);
+	f.open(_target + "_shrubbery", std::ios::out | std::ios::app);
 	for (int i = 0; i < 3; i++)
 	{
 		f << "         &&& &&  & &&" << std::endl;
