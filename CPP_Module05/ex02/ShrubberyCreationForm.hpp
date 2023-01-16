@@ -6,58 +6,27 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:19:35 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/16 10:22:47 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/16 14:11:37 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
 #include <iostream>
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include <fstream>
 
-
-class ShrubberyCreationForm
+class ShrubberyCreationForm : public Form
 {
 private:
-	const std::string _name;
-	bool _i;
-	const int _gradeS;
-	const int _gradeE;
+	std::string _objet;
+	ShrubberyCreationForm();
 public:
-	ShrubberyCreationForm(/* args */);
-	ShrubberyCreationForm(const std::string _name, const int gradeS, const int gradeE);
+	ShrubberyCreationForm(const std::string object);
 	ShrubberyCreationForm(const ShrubberyCreationForm &t);
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm &t);
-
 	~ShrubberyCreationForm();
-
-	class GradeTooHighExeption : public std::exception
-	{
-		public:
-			const char  *what(void) const throw();
-	};
-
-	class GradeTooLowExeption : public std::exception
-	{
-	public:
-		const char *what(void) const throw();
-	};
-	const std::string getShrubberyCreationFormName(void) const;
-	const int getShrubberyCreationFormGradeE(void) const;
-	const int getShrubberyCreationFormGradeS(void) const;
 	
-	
+	void execute(const Bureaucrat& executor);
 };
-
-const std::string ShrubberyCreationForm::getShrubberyCreationFormName() const{
-	return(this->_name);
-}
-
-const int ShrubberyCreationForm::getShrubberyCreationFormGradeE() const{
-	return(this->_gradeE);
-}
-
-const int ShrubberyCreationForm::getShrubberyCreationFormGradeS() const{
-	return(this->_gradeS);
-}
 

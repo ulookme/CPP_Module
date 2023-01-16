@@ -6,23 +6,31 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 20:19:31 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/16 10:18:35 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/16 14:35:43 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm():_gradeE(0), _gradeS(0), _i(false)
+ShrubberyCreationForm::ShrubberyCreationForm()
 {
 	
 }
-
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &t):_name(t._name), _gradeS(t._gradeS), _gradeE(t._gradeE)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string object):
+	Form("ShrubberyCreationForm", 145, 137)
 {
+	_objet = object;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &t):Form(t)
+{
+	_objet = t._objet;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm &t)
 {
+	Form::operator=(t);
+	_objet = t._objet;
 	return(*this);
 }
 
@@ -30,36 +38,31 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-const char *ShrubberyCreationForm::GradeTooHighExeption::what(void) const throw()
+void ShrubberyCreationForm::execute(const Bureaucrat& executor)
 {
-	return ("[Grade Too High Exception]\nGrade 1 is the highest grade, so you can't raise your grade any more.");
-}
+	std::ofstream f;
+	if (issigned() == false)
+		throw NotSignedException();
+	if (executor.getGrade() > getFormGradeE())
+		throw GradeTooLowExeption();
 
-const char *ShrubberyCreationForm::GradeTooLowExeption::what(void) const throw()
-{
-	return("[Grade Too Low Exception]\nThe grade 150 is the lowest, so you can't lower the grade any more.");
+	f.open(_objet + "_shrubbery", std::ios::out | std::ios::app);
+	for (int i = 0; i < 3; i++)
+	{
+		f << "         &&& &&  & &&" << std::endl;
+		f << "      && &\\/&\\|& ()|/ @, &&" << std::endl;
+		f << "      &\\/(/&/&||/& /_/)_&/_&" << std::endl;
+		f << "   &() &\\/&|()|/&\\/ '%\" & ()" << std::endl;
+		f << "  &_\\_&&_\\ |& |&&/&__%_/_& &&" << std::endl;
+		f << "&&   && & &| &| /& & % ()& /&&" << std::endl;
+		f << " ()&_---()&\\&\\|&&-&&--%---()~" << std::endl;
+		f << "     &&     \\|||" << std::endl;
+		f << "             |||" << std::endl;
+		f << "             |||" << std::endl;
+		f << "             |||" << std::endl;
+		f << "       , -=-~  .-^- _" << std::endl << std::endl << std::endl;
+	}
+	f.close();
 }
-
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name, const int gradeS, const int gradeE):_name(name), _gradeS(gradeS),_gradeE(gradeE) 
-{
-	_i = 0;
-	if(_gradeE < 137 || _gradeS < 145)
-		GradeTooLowExeption();
-	else if(_gradeE > 137 || _gradeS > 145)
-		GradeTooLowExeption();
-}
-
-const std::string ShrubberyCreationForm::getShrubberyCreationFormName() const{
-	return(this->_name);
-}
-
-const int ShrubberyCreationForm::getShrubberyCreationFormGradeE() const{
-	return(this->_gradeE);
-}
-
-const int ShrubberyCreationForm::getShrubberyCreationFormGradeS() const{
-	return(this->_gradeS);
-}
-
 
 

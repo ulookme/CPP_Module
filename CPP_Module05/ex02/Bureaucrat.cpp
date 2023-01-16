@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 20:06:00 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/15 19:41:06 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/16 14:33:35 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,21 +67,13 @@ void Bureaucrat::removeDecrement(void){
 }
 
 void Bureaucrat::signForm(Form &form) const{
-	if(form.issigned() == 0)
-	{
-		std::cout << *this << "couldn’t sign " << form
-		<< "because the form is already signed" << std::endl;
-	}
-	else if (form.getFormGradeS() < this->_grade)
-	{
-		std::cout << *this << " cannot sign " << form
-				<< " because it's grade is too low." << std::endl;
-	}
-	else
-	{
-		std::cout << *this << " signs " << form << std::endl;
-	}
+	if (_grade > form.getFormGradeS())
+		throw GradeTooLowExeption();
 	form.beSigned(*this);
+}
+
+void Bureaucrat::executeForm( Form& form) const{
+	form.execute(*this);
 }
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &ref){

@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 20:06:10 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/15 19:48:53 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/16 14:18:29 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ public:
 	void addIncrement(void);
 	void removeDecrement(void);
 	void signForm(Form &form) const;
-
-
+	void executeForm( Form& form) const;
 };
 
 std::ostream& operator<<(std::ostream &out, const Bureaucrat &ref);

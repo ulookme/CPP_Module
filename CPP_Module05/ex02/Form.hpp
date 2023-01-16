@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 16:45:56 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/15 19:49:03 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/16 14:08:33 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,18 @@ public:
 		public:
 			const char *what(void) const throw();
 	};
+	
+	class NotSignedException: public std::exception {
+		public:
+			const char *what(void) const throw();
+	};
 
 	const std::string getFormName() const;
 	const int getFormGradeS() const;
 	const int getFormGradeE() const;
 	void beSigned(const Bureaucrat &t);
 	bool issigned(void) const;
+	virtual void execute(const Bureaucrat& executor) = 0;
 };
 
 std::ostream &operator<<(std::ostream &out, Form const &form);

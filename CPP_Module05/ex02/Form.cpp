@@ -6,7 +6,7 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 16:45:45 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/15 19:46:39 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/16 14:29:34 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,18 @@ const char *Form::GradeTooLowExeption::what() const throw(){
 	return("[Grade Too Low Exception]\nThe grade 150 is the lowest, so you can't lower the grade any more.");
 }
 
+const char *Form::NotSignedException::what() const throw(){
+	return("Not signed Exception");
+}
+
 Form::Form(std::string name, const int gradeS, const int gradeE):
 _name(name), _gradeS(gradeS),_gradeE(gradeE)
 {
-	_i = 0;
+	_i = false;
 	if(_gradeE < 1 || _gradeS < 1)
-		 throw GradeTooHighExeption();
+		throw GradeTooHighExeption();
 	else if(_gradeE > 150 || _gradeS > 150)
-		throw GradeTooLowExeption();
-		
+		throw GradeTooLowExeption();		
 }
 
 const std::string Form::getFormName() const {
@@ -60,12 +63,12 @@ const int Form::getFormGradeE() const {
 	return(this->_gradeE);
 }
 
-void Form::beSigned(const Bureaucrat &t){
-	if(t.getGrade() <= _gradeS && t.getGrade() <= _gradeE)
-		throw GradeTooHighExeption();
-	else if(this->_i)
+void Form::beSigned(const Bureaucrat &t)
+{
+	if(t.getGrade() > _gradeS)
 		throw GradeTooLowExeption();
-	this->_i = true;
+	else
+		this->_i = true;
 }
 
 bool Form::issigned(void) const{
