@@ -6,7 +6,16 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:40:21 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/17 16:40:22 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/17 18:00:13 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#include <string>
+#include <iostream>
+
+class Base
+{
+public:
+	virtual ~Base();
+};

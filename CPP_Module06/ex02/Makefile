@@ -6,13 +6,13 @@
 #    By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 16:23:04 by chajjar           #+#    #+#              #
-#    Updated: 2023/01/17 16:41:52 by chajjar          ###   ########.fr        #
+#    Updated: 2023/01/17 17:13:22 by chajjar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Identification
 
-SRCS = main.cpp
+SRCS = main.cpp Base.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 CC = c++

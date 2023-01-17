@@ -6,7 +6,14 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 16:40:31 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/17 16:40:32 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/17 18:00:06 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#include "Base.hpp"
+
+class A: public Base
+{
+
+};
