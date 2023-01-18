@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/18 15:17:12 by chajjar           #+#    #+#              #
-#    Updated: 2023/01/18 16:48:49 by chajjar          ###   ########.fr        #
+#    Created: 2023/01/18 19:20:07 by chajjar           #+#    #+#              #
+#    Updated: 2023/01/18 19:23:36 by chajjar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = EasyFind
+NAME = SPAN
 
-SRC = main.cpp 
+SRC = main.cpp Span.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98

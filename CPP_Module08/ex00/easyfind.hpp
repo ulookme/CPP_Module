@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 15:17:09 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/18 19:13:32 by chajjar          ###   ########.fr       */
+/*   Created: 2023/01/18 16:49:11 by chajjar           #+#    #+#             */
+/*   Updated: 2023/01/18 19:09:49 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
-
+#pragma once
 #include <iostream>
-#include <vector>
+#include <algorithm>
+#include <exception>
 
-int main()
-{
-	std::vector<int>	v;
-	int					s = 16;
-
-	for(int i = 0; i < 10; i++)
-		v.push_back(i * 5);
-	
-	std::vector<int>::iterator	it;
-	try {
-		it = easyfind(v, s);
-		std::cout << *it << std::endl;
-	} catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
- 	}
+template<typename T>
+typename T::iterator	easyfind(T &cont, int nb){
+	typename T::iterator found = std::find(cont.begin(), cont.end(), nb);
+	if (found == cont.end())
+		throw std::out_of_range("Value couldn't be found!");
+	return found;
 }
+
