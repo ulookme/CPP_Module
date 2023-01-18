@@ -6,13 +6,13 @@
 #    By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/17 18:05:14 by chajjar           #+#    #+#              #
-#    Updated: 2023/01/18 10:04:38 by chajjar          ###   ########.fr        #
+#    Updated: 2023/01/18 11:57:07 by chajjar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ITER
 
-SRC = main.cpp 
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
