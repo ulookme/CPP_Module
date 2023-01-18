@@ -6,14 +6,13 @@
 /*   By: chajjar <chajjar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 19:20:57 by chajjar           #+#    #+#             */
-/*   Updated: 2023/01/18 21:08:12 by chajjar          ###   ########.fr       */
+/*   Updated: 2023/01/18 21:26:10 by chajjar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
 Span::Span(int n):_N(n){
-	_array.resize(n);
 }
 
 Span::~Span()
@@ -38,14 +37,23 @@ void Span::addNumber(const int &n){
 }
 
 size_t Span::shortestSpan(){
-	
+	size_t d = -1;
+	if(this->_array.size() <= 1)
+		throw IsEmpty();
+	std::sort(_array.begin(), _array.end());
+	for (std::vector<int>::iterator it = _array.begin(); it != _array.end() - 1; it++)
+	{
+		if(*(it + 1) - *it < d)
+			d = *(it + 1) - *it;
+	}
+	return(d);
 }
 
 size_t Span::longestSpan(){
 	if(this->_array.size() <= 1)
 		throw IsEmpty();
 	std::sort(_array.begin(), _array.end());
-	return(*(_array.end() - 1) - *_array.begin());
+	return(*(_array.end() - 1) - *(_array.begin()));
 }
 
 const char* Span::SpanNoSpaceExceptin::what() const throw(){
